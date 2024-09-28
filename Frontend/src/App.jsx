@@ -30,8 +30,6 @@ const App = () => {
   }, []);
 
   // Open dialog for adding/editing user
-
-  
   const handleClickOpen = () => {
   
     setName('');
