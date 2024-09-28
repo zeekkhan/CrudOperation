@@ -5,7 +5,6 @@ import {
   TextField, Dialog, DialogActions, DialogContent, DialogTitle
 } from '@mui/material';
 
-
 const App = () => {
   const [users, setUsers] = useState([]);
   const [open, setOpen] = useState(false);
@@ -17,7 +16,6 @@ const App = () => {
 
   const fetchUsers = async () => {
     try {
-
       const response = await axios.get('http://localhost:5000/api/items');
       setUsers(response.data);
       
