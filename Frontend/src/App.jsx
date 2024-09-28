@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
-
 import axios from 'axios';
 
 
@@ -148,7 +146,7 @@ const App = () => {
                       size="small"
                       onClick={() => handleDelete(user.id)}
                     >
-                    
+
                       Delete
                     </Button>
                   </TableCell>
