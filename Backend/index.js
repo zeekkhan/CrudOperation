@@ -54,10 +54,7 @@ app.put('/api/items/:id', (req, res) => {
 });
 
 // DELETE - Remove an item by ID
-
 app.delete('/api/items/:id', (req, res) => {
-    
-
     items = items.filter(i => i.id !== parseInt(req.params.id));
 
     res.status(204).send();
