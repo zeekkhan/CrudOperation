@@ -41,15 +41,12 @@ app.post('/api/items', (req, res) => {
 });
 
 // PUT - Update an item by ID
-
 app.put('/api/items/:id', (req, res) => {
     const item = items.find(
         i => i.id === parseInt(req.params.id));
-
     if (item) {
         item.name = req.body.name;
         item.email = req.body.email;
-
         res.json(item);
     } else {
         res.status(404).json({ message: 'Item not found' });
