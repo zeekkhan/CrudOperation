@@ -44,8 +44,6 @@ const App = () => {
   };
 
   // Save a new user or update an existing user
-
-  
   const handleSave = async () => {
   
     if (editId) {
