@@ -70,7 +70,6 @@ const App = () => {
   };
 
   // Edit user
-
   const handleEdit = (user) => {
   
     setName(user.name);
