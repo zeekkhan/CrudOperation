@@ -21,7 +21,6 @@ const App = () => {
       
     } catch (error) {
       console.error('Error fetching users:', error);
-
     }
   };
 
