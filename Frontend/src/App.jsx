@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
+
+
 import axios from 'axios';
+
+
 import {
   Box, Button, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper,
   TextField, Dialog, DialogActions, DialogContent, DialogTitle
 } from '@mui/material';
+
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -13,21 +18,29 @@ const App = () => {
   const [editId, setEditId] = useState(null);
 
   // Fetch all users from the server
+
   const fetchUsers = async () => {
     try {
+
       const response = await axios.get('http://localhost:5000/api/items');
       setUsers(response.data);
+      
     } catch (error) {
       console.error('Error fetching users:', error);
+
     }
   };
+
 
   useEffect(() => {
     fetchUsers();
   }, []);
 
   // Open dialog for adding/editing user
+
+  
   const handleClickOpen = () => {
+  
     setName('');
     setEmail('');
     setEditId(null);
@@ -35,18 +48,26 @@ const App = () => {
   };
 
   // Close dialog
+
   const handleClose = () => {
     setOpen(false);
+  
   };
 
   // Save a new user or update an existing user
+
+  
   const handleSave = async () => {
+  
     if (editId) {
+
       // Update existing user
+      
       try {
         await axios.put(`http://localhost:5000/api/items/${editId}`, { name, email });
         fetchUsers();
       } catch (error) {
+      
         console.error('Error updating user:', error);
       }
     } else {
@@ -62,7 +83,9 @@ const App = () => {
   };
 
   // Edit user
+
   const handleEdit = (user) => {
+  
     setName(user.name);
     setEmail(user.email);
     setEditId(user.id);
@@ -70,17 +93,22 @@ const App = () => {
   };
 
   // Delete user
+
   const handleDelete = async (id) => {
+  
     try {
       await axios.delete(`http://localhost:5000/api/items/${id}`);
       fetchUsers();
     } catch (error) {
       console.error('Error deleting user:', error);
+
     }
   };
 
   return (
+
     <Container maxWidth="md">
+    
       <Box my={4}>
         <Typography variant="h4" align="center" gutterBottom>
           User Management System
@@ -120,6 +148,7 @@ const App = () => {
                       size="small"
                       onClick={() => handleDelete(user.id)}
                     >
+                    
                       Delete
                     </Button>
                   </TableCell>
